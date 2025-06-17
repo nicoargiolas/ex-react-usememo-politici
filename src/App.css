@@ -1,42 +1,42 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+.politician-card {
+  width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   text-align: center;
+  background-color: #fff;
+  font-family: sans-serif;
+  transition: transform 0.2s;
+  margin-bottom: 10px;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.politician-card:hover {
+  transform: translateY(-4px);
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.politician-name {
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+  color: #333;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.politician-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  object-fit: cover;
 }
 
-.card {
-  padding: 2em;
+.politician-position {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 12px;
 }
 
-.read-the-docs {
-  color: #888;
+.biography {
+  font-size: 0.95rem;
+  color: #444;
+  line-height: 1.4;
 }

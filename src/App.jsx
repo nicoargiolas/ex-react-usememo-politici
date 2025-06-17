@@ -1,15 +1,17 @@
-import { useState, useEffect, useMemo } from 'react'
+import { useState, useEffect, useMemo, memo } from 'react'
 import './App.css'
 
-// 📌 Milestone 2: Implementare la ricerca ottimizzata
+// 📌 Milestone 3: Ottimizzare il rendering delle card con React.memo
 
-// Aggiungi un campo di ricerca (<input type="text">) sopra la lista dei politici.
-// Permetti all’utente di filtrare i risultati in base a nome o biografia (se il testo cercato è incluso). Suggerimento: Creare un array derivato filtrato, che viene aggiornato solo quando cambia la lista di politici o il valore della ricerca.
-// ❌ Non usare useEffect per aggiornare l’array filtrato.
+// Attualmente, ogni volta che l’utente digita nella barra di ricerca, tutte le card vengono ri-renderizzate, anche quelle che non sono cambiate.
+// Usa React.memo() per evitare il ri-render delle card quando le loro props non cambiano.
+// Aggiungi un console.log() dentro il componente Card per verificare che venga renderizzato solo quando necessario.
 
-// Obiettivo: Migliorare le prestazioni evitando ricalcoli inutili quando il valore della ricerca non cambia.
+// Obiettivo: Se la lista filtrata cambia, solo le nuove card devono essere renderizzate, mentre le altre rimangono in memoria senza essere ridisegnate.
 
-const PoliticianCard = ({ name, image, position, biography }) => {
+const PoliticianCard = memo(({ name, image, position, biography }) => {
+  console.log('Render card:', name);
+
   return (
     <div className='politician-card'>
       <h3 className='politician-name'> {name} </h3>
@@ -18,7 +20,7 @@ const PoliticianCard = ({ name, image, position, biography }) => {
       <p className='biography'> {biography} </p>
     </div>
   )
-}
+})
 
 
 function App() {
